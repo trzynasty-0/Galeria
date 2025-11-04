@@ -49,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
         repozytorium.add(R.drawable.hornet);
         repozytorium.add(R.drawable.together);
 
+        if(savedInstanceState != null){
+            numerZdjecia = savedInstanceState.getInt("NUMERZDJECIA");
+            zdjecie.setImageResource(repozytorium.get(numerZdjecia));
+
+
+        }
+
         prev.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -94,7 +101,8 @@ public class MainActivity extends AppCompatActivity {
                         if(!String.valueOf(podanyNumer.getText()).equals("")){
                             for(int j = 0; j < repozytorium.size(); j++){
                                 if(Integer.parseInt(String.valueOf(podanyNumer.getText())) == j){
-                                    zdjecie.setImageResource(repozytorium.get(j));
+                                    numerZdjecia = j;
+                                    zdjecie.setImageResource(repozytorium.get(numerZdjecia));
                                 }
 
                             }
@@ -119,9 +127,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    protected void onSaveInstanceState(@NonNull Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//        outState.putInt("");
-//    }
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("NUMERZDJECIA", numerZdjecia);
+    }
 }
