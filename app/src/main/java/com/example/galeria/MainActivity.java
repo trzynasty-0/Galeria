@@ -102,7 +102,20 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+        czyNiebieskie.setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(@NonNull CompoundButton compoundButton, boolean b) {
+                        if(b){
+                            findViewById(R.id.main).setBackgroundColor(getColor(R.color.drugieTloOgolne));
+                        }
+                        else{
+                            findViewById(R.id.main).setBackgroundColor(getColor(R.color.tloOgolne));
 
+                        }
+                    }
+                }
+        );
 
     }
 
