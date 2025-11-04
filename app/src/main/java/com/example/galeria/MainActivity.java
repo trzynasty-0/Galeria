@@ -1,6 +1,7 @@
 package com.example.galeria;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView zdjecie;
     private EditText podanyNumer;
     private Switch czyNiebieskie;
+    private int numerZdjecia = 0;
+    private ArrayList<Integer> repozytorium = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,12 +40,41 @@ public class MainActivity extends AppCompatActivity {
         podanyNumer = findViewById(R.id.numerEdit);
         czyNiebieskie = findViewById(R.id.zmienicKolorSwitch);
 
-        ArrayList<Integer> repozytorium = new ArrayList<>();
+
         repozytorium.add(R.drawable.knight);
         repozytorium.add(R.drawable.hornet);
         repozytorium.add(R.drawable.together);
 
+        prev.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(numerZdjecia != 0){
+                            numerZdjecia--;
+                        }
+                        else{
+                            numerZdjecia = repozytorium.size() - 1;
+                        }
+                        zdjecie.setImageResource(repozytorium.get(numerZdjecia));
+                    }
+                }
+        );
+        next.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(numerZdjecia != repozytorium.size() - 1){
+                            numerZdjecia++;
+                        }
+                        else{
+                            numerZdjecia = 0;
+                        }
+                        zdjecie.setImageResource(repozytorium.get(numerZdjecia));
+                    }
+                }
+        );
 
 
     }
+
 }
