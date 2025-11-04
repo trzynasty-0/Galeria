@@ -6,12 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/tloOgolne"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="32sp"
+        android:background="@color/tloPrzycisku"
+        android:textColor="@color/white"
         android:text="Galeria" />
 
     <ImageView
@@ -31,6 +34,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/tloPrzycisku"
+            android:textColor="@color/white"
+            android:textSize="24sp"
             android:text="Prev" />
 
         <Space
@@ -43,6 +49,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/tloPrzycisku"
+            android:textColor="@color/white"
+            android:textSize="24sp"
             android:text="Next" />
     </LinearLayout>
 
@@ -55,19 +64,22 @@
             android:id="@+id/pytanie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/black"
             android:text="Które zdjęcie wyświetlić" />
 
         <Space
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="5" />
 
         <EditText
             android:id="@+id/editTextNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
+            android:ems="1"
+            android:textColor="@color/black"
             android:inputType="number" />
 
     </LinearLayout>
@@ -76,12 +88,22 @@
         android:id="@+id/zmienicKolorSwitch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
         android:text="Tło niebieskie?" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:background="@color/tloPrzycisku"
+        android:textSize="16sp"
         android:text="Autor: 00000000000" />
 
 </LinearLayout>
