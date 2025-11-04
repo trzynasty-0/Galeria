@@ -1,13 +1,17 @@
 package com.example.galeria;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -73,8 +77,38 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+        podanyNumer.addTextChangedListener(
+                new TextWatcher() {
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+
+                    }
+
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        if(!String.valueOf(podanyNumer.getText()).equals("")){
+                            for(int j = 0; j < repozytorium.size(); j++){
+                                if(Integer.parseInt(String.valueOf(podanyNumer.getText())) == j){
+                                    zdjecie.setImageResource(repozytorium.get(j));
+                                }
+
+                            }
+                        }
+                    }
+                }
+        );
 
 
     }
 
+//    @Override
+//    protected void onSaveInstanceState(@NonNull Bundle outState) {
+//        super.onSaveInstanceState(outState);
+//        outState.putInt("");
+//    }
 }
